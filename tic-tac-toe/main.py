@@ -32,10 +32,10 @@ def player_move_func(player_move, team):
 # Цикл ходов
 move_count = 0
 
-player_move_func(x_player_move, 'X')
+player_move_func('x_player_move', 'X')
 
 while move_count < 8:
-    player_move_func(o_player_move, '0')
+    player_move_func('o_player_move', '0')
 
     if (game_board[1][1] == '0' and game_board[2][2] == '0' and game_board[3][3] == '0' or
             game_board[1][3] == '0' and game_board[2][2] == '0' and game_board[3][1] == '0' or
@@ -48,7 +48,7 @@ while move_count < 8:
         print('Игрок 0 победил!')
         break
 
-    player_move_func(x_player_move, 'X')
+    player_move_func('x_player_move', 'X')
 
     if (game_board[1][1] == 'X' and game_board[2][2] == 'X' and game_board[3][3] == 'X' or
             game_board[1][3] == 'X' and game_board[2][2] == 'X' and game_board[3][1] == 'X' or
