@@ -4,16 +4,19 @@ import numpy as np
 def game_core_v3(number):
     # Используем метод бинарного поиска.  Функция принимает загаданное число и возвращает число попыток.
     count = 1
-    predict = len(list(range(1, 101))) // 2
+    min_point = 1
+    max_point = 101
+    predict = (min_point + max_point) // 2
 
     while number != predict:
         count += 1
-        if number > predict:
-            predict = len(list(range(predict, 101))) // 2
-            return predict
-        elif number < predict:
-            predict = len(list(range(1, predict))) // 2
-            return predict
+
+        if predict < number:
+            min_point = predict
+        else:
+            max_point = predict
+        predict = (min_point + max_point) // 2
+
     return count
 
 
@@ -35,7 +38,7 @@ score_game(game_core_v3)
 """
 Метод бинарного поиска показал себя наиболее эффективно при решении данной задачи.
  
-Алгоритм вернул загаданное число за 24 попытки.
+Алгоритм вернул загаданное число за  попытки.
 Против 101 и 33 попыток при использовании методов прямого перебора без условий и с условием соответственно.
 
 """
